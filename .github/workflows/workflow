@@ -16,3 +16,11 @@ jobs:
           prerelease: false
 
       # 其他步骤...
+# 在 workflow 文件中确认权限配置
+permissions:
+  contents: write  # 最低所需权限
+  # 或直接赋予全部权限（测试时可临时使用）
+  # issues: write
+  # pull-requests: write
+  # statuses: write
+  # deployments: write
