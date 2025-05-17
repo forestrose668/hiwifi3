@@ -1,0 +1,31 @@
+# 步骤 1 - 创建 workflow 文件
+1. 在项目根目录创建 `.github/workflows/release.yml`
+2. 复制以下完整配置：
+
+```plaintext
+```
+名称：自动发布
+
+在：
+  推送:
+    标签:
+      - 'v*'  # 匹配所有v开头的标签
+
+权限：
+  内容：写 # 关键权限配置
+
+工作：
+  创建发布:
+    运行于：ubuntu-latest
+    步骤：
+      - name: 检出代码
+        用途：actions/checkout@v4
+        与：
+          获取完整提交历史
+
+      - name: 创建 GitHub Release
+        使用: softprops/action-gh-release@v1
+        与：
+          草稿： false
+          预发布： false
+          生成版本说明： true
